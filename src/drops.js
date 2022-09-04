@@ -13,6 +13,7 @@ export let droppedBits;
 export let remainingBits;
 export let dropHappening;
 export let claimedIds = [];
+export let active = false;
 
 const DEFAULT_DESC = ` Chirps have been dropped! Type \`!claim\` to claim them!\n`
 const DESCRIPTIONS = [
@@ -31,6 +32,7 @@ export function randomInRange(min, max) {
 }
 
 export async function timer(framework,message) {
+    active = true;
     setTimeout(async () => {
         await timerComplete(framework,message);
     }, Math.floor(randomInRange(MAX_DROP_TIMER,MIN_DROP_TIMER) * 1000 * 60));
@@ -70,7 +72,7 @@ export async function dropTimeout(framework,message) {
     await timer(framework,message);
 }   
 
-export function updateRemainingBits(claimedAmound) {
-    remainingBits -= claimedAmound;
+export function updateRemainingBits(claimedAmount) {
+    remainingBits -= claimedAmount;
     return
 }
