@@ -1,6 +1,6 @@
 // Database init with Sequelize
 import Sequelize from 'sequelize';
-import config from './config.js';
+import config from './config_.js';
 
 // Dotenv broke so just using a config file for now
 const sequelize = new Sequelize('bitware', config.DB_USERNAME, config.DB_PASSWORD, {
