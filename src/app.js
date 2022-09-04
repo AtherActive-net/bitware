@@ -1,6 +1,6 @@
 import Framework from 'strike-discord-framework';
 import { sequelize } from './database.js';
-import config from './config_.js';
+import config from './config.js';
 
 const framework = new Framework({
     token: config.TOKEN,
