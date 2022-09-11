@@ -8,7 +8,7 @@ const framework = new Framework({
     ownerID: 189317034360832001,
     databaseOpts: {
         databaseName: "bitware",
-        url: "mongodb://127.0.0.1"
+        url: config.MONGO,
     },
     loggerOpts: {
         logToFile: true
@@ -17,8 +17,7 @@ const framework = new Framework({
     commandsPath: `${process.cwd()}/src/commands/`,
 });
 
-
-framework.loadBotCommands(`${process.cwd()}/node_modules/strike-discord-framework/dist/defaultCommands/`);
+framework.loadBotCommands(`${process.cwd()}/../node_modules/strike-discord-framework/dist/defaultCommands/`);
 
 setTimeout(async () => {
     await framework.init();
