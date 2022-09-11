@@ -7,6 +7,10 @@ const CHIRP = "<:chirp:1015918908244508682>";
 
 class Claim extends Command {
     name = "claim";
+    help= {
+        msg: "Claim a Chirp from the current drop!",
+        usage: "!claim",
+    }
 
     async run(event) {
         const {framework, message} = event;
@@ -38,19 +42,22 @@ class Claim extends Command {
         }
 
         await this.setClaimedDrop(message);
-        await this.updateDatabaseValue(message);
+        await this.updateDatabaseValue(message,framework);
         const emb = new Discord.MessageEmbed()
             .setTitle("You successfully claimed a Chirp!");
+        emb.setDescription(`${CHIRP}`)
         emb.setColor(0x00ff00);
+
+        message.react(CHIRP)
 
         return emb
     }
     
 
-    async updateDatabaseValue(message, droppedAmount=1) {
+    async updateDatabaseValue(message, framework, droppedAmount=1) {
         const author = `${message.author.id}`
         if(await User.doesUserExist(author)) {
-            User.updateBits(author, droppedAmount);
+            User.updateBits(author, droppedAmount,framework,message);
         } else {
             await User.create({
                 discordId: author,
