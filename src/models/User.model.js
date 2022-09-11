@@ -27,13 +27,22 @@ User.doesUserExist = async function(discordId) {
     return await User.findByDiscordId(discordId) !== null
 }
 
-User.updateBits = async function(discordId, amount) {
+User.updateBits = async function(discordId, amount,framework,message) {
     const user = await User.findByDiscordId(discordId)
     user.bits += amount
     await user.save()
     if(remainingBits == 0 && dropHappening) {
-        await dropTimeout();
+        await dropTimeout(framework,message);
     }
+}
+
+User.getTopUsers = async function() {
+    return await User.findAll({order: [['bits', 'DESC']], limit: 10})
+}   
+
+User.getCurrentChirps = async function(discordId) {
+    const user = await User.findByDiscordId(discordId)
+    return user.bits
 }
 
 export default User;
