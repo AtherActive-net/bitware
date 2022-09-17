@@ -12,6 +12,7 @@ const sequelize = new Sequelize('bitware', config.DB_USERNAME, config.DB_PASSWOR
 setTimeout(async () => {
 
     const User = import('./models/User.model.js');
+    const Guild = import('./models/Guild.model.js');
 
     await sequelize.sync({alter: true});
 },1000)

@@ -1,4 +1,5 @@
 import Discord from "discord.js";
+import Guild from "./models/Guild.model.js";
 
 const MIN_DROP_TIMER = 180; // 180
 const MAX_DROP_TIMER = 500; // 500
@@ -50,7 +51,8 @@ export async function timerComplete(framework,message) {
     emb.setColor('#ebcf34');
     emb.description = remainingBits + DEFAULT_DESC + DESCRIPTIONS[randomInRange(0,DESCRIPTIONS.length-1)];
 
-    await message.channel.send({embeds: [emb]});
+    // await message.channel.send({embeds: [emb]});
+    sendToAllGuids(framework,emb);
 
     setTimeout(async () => {
         if(dropHappening) await dropTimeout(framework,message);
@@ -72,7 +74,8 @@ export async function dropTimeout(framework,message) {
         emb.description += `<@${element}> `;
     });
 
-    await message.channel.send({embeds: [emb]});
+    // await message.channel.send({embeds: [emb]});
+    await sendToAllGuids(framework,emb)
     dropHappening = false;
     await timer(framework,message);
 }   
@@ -80,4 +83,17 @@ export async function dropTimeout(framework,message) {
 export function updateRemainingBits(claimedAmount) {
     remainingBits -= claimedAmount;
     return
+}
+
+export async function sendToAllGuids(framework,emb) {
+    let guilds = await Guild.getAllGuilds();
+    guilds.forEach(async guild => {
+        try {
+            let channel = await framework.client.channels.fetch(guild.channelId);
+            await channel.send({embeds: [emb]});
+        } catch (e) {
+            console.log(e)
+            framework.log.error(`Failed to send message to guild ${guild.guildId}`);
+        }
+    })
 }
