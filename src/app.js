@@ -19,8 +19,8 @@ const framework = new Framework({
     commandsPath: `${process.cwd()}/src/commands/`,
 });
 
-    // framework.loadBotCommands(`${process.cwd()}/../node_modules/strike-discord-framework/dist/defaultCommands/`);
-    framework.loadBotCommands(`${process.cwd()}/node_modules/strike-discord-framework/dist/defaultCommands/`);
+    framework.loadBotCommands(`${process.cwd()}/../node_modules/strike-discord-salt-edits/dist/defaultCommands/`);
+    // framework.loadBotCommands(`${process.cwd()}/node_modules/strike-discord-framework/dist/defaultCommands/`);
 
 setTimeout(async () => {
     await framework.init();

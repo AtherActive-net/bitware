@@ -16,7 +16,7 @@ export let dropHappening;
 export let claimedIds = [];
 export let active = false;
 
-const DEFAULT_DESC = ` Chirps have been dropped! Type \`!claim\` to claim them!\n`
+const DEFAULT_DESC = ` Chirps have been dropped! Type \`!claim / !chirp\` to claim them!\n`
 const DESCRIPTIONS = [
     `Did you know: Chirps drops can happen at any time?`,
     `Chirp drops expire quite quickly, so be sure to claim them as soon as possible!`,
