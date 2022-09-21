@@ -6,7 +6,7 @@ import User from "../../models/User.model.js";
 const CHIRP = "<:chirp:1015918908244508682>";
 
 class Claim extends Command {
-    name = "claim";
+    name = "chirp";
     help= {
         msg: "Claim a Chirp from the current drop!",
         usage: "!claim",

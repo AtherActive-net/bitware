@@ -14,7 +14,7 @@ setTimeout(async () => {
     const User = import('./models/User.model.js');
     const Guild = import('./models/Guild.model.js');
 
-    await sequelize.sync({alter: true});
+    await sequelize.sync({alter: true, logging: false});
 },1000)
 
 export {sequelize}

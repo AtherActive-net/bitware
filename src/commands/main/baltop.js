@@ -1,5 +1,5 @@
 import Discord from "discord.js";
-import { Command } from "strike-discord-framework/dist/command.js";
+import { Command } from "strike-discord-salt-edits/dist/command.js";
 import User from "../../models/User.model.js";
 
 class Baltop extends Command {

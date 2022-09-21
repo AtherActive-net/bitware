@@ -1,14 +1,14 @@
 import Discord from "discord.js";
 import Guild from "./models/Guild.model.js";
 
-const MIN_DROP_TIMER = 180; // 180
+const MIN_DROP_TIMER = 120; // 180
 const MAX_DROP_TIMER = 500; // 500
 const MIN_DROP_DURATION = 30; //30
 const MAX_DROP_DURATION = 90; //90
-const MIN_BITS_DROPPED = 2;
-const MAX_BITS_DROPPED = 10;
+const MIN_BITS_DROPPED = 4;
+const MAX_BITS_DROPPED = 16;
 const CHIRP = "<:chirp:1015918908244508682>";
-export const RANDOM_DOUBLE_CHANCE = 150; //300, halves this value and uses that as value for the drop.
+export const RANDOM_DOUBLE_CHANCE = 50; //300, halves this value and uses that as value for the drop.
 
 export let droppedBits;
 export let remainingBits;
@@ -25,7 +25,7 @@ const DESCRIPTIONS = [
     `Chirpware was inspired by Kodey's unofficial chirp claims!`,
     `The Chirp mint has no known location. The only known information is that it is high in a tree.`,
     `The Chirp production process is a closely guarded secret.`,
-    `Chirp drops have a random duration. They can last anywhere from \`${MIN_DROP_TIMER}\` to \`${MAX_DROP_TIMER}\` minutes.`,
+    `Chirp drops have a random duration. They can last anywhere from \`${MIN_DROP_DURATION}\` to \`${MAX_DROP_DURATION}\` minutes.`,
     `Chirpware is currently at war with Chipware.`
 ]
 
