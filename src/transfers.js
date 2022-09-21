@@ -36,8 +36,26 @@ class Transfers {
      * @returns `false` The transaction failed.
      */
     async payUser(sender,receiver,amount) {
-        let sendUser = await User.findOne({ discordId: sender });
-        let receiveUser = await User.findOne({ discordId: receiver });
+        let sendUser = await User.findOne({
+            where: {
+                discordId: sender
+            }
+        });
+        let receiveUser = await User.findOne({
+            where: {
+                discordId: receiver
+            }
+        });
+
+        console.log(sender)
+        console.log(receiver)
+        console.log(receiveUser)
+
+        // if the amount if == to 0, return false.
+        if(amount <= 0 || !amount) return false;
+
+        if(!sendUser || !receiveUser) throw "USER_NOT_FOUND"
+
         if(!this.checkUserBalanceObject(sendUser) >= amount) return false;
 
         sendUser.bits -= amount;
