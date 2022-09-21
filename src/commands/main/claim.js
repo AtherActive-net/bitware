@@ -21,6 +21,7 @@ class Claim extends Command {
         }
         if(this.hasClaimedDrop(message)) {
             await message.channel.send("You've already claimed from this drop!");
+            return;
         }
 
         if(randomInRange(0,RANDOM_DOUBLE_CHANCE) == Math.floor(RANDOM_DOUBLE_CHANCE/2)) {

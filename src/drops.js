@@ -8,7 +8,7 @@ const MAX_DROP_DURATION = 90; //90
 const MIN_BITS_DROPPED = 2;
 const MAX_BITS_DROPPED = 10;
 const CHIRP = "<:chirp:1015918908244508682>";
-export const RANDOM_DOUBLE_CHANCE = 300; //300, halves this value and uses that as value for the drop.
+export const RANDOM_DOUBLE_CHANCE = 150; //300, halves this value and uses that as value for the drop.
 
 export let droppedBits;
 export let remainingBits;
