@@ -24,6 +24,6 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.4",
     "strike-discord-framework": "^1.4.13",
-    "strike-discord-salt-edits": "^1.4.13"
+    "strike-discord-salt-edits-temp": "^1.4.13"
   }
 }

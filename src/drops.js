@@ -80,10 +80,14 @@ export async function dropTimeout(framework,message) {
     await timer(framework,message);
 }   
 
-export function updateRemainingBits(claimedAmount) {
+export function updateRemainingBits(claimedAmount,framework,message) {
     remainingBits -= claimedAmount;
+    if(remainingBits <= 0) {
+        dropTimeout(framework,message)
+    }
     return
 }
+
 
 export async function sendToAllGuids(framework,emb) {
     let guilds = await Guild.getAllGuilds();

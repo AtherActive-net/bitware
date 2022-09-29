@@ -1,5 +1,5 @@
 import Discord from "discord.js";
-import { Command } from "strike-discord-framework/dist/command.js";
+import { Command } from "strike-discord-salt-edits-temp/dist/command.js";
 import Guild from "../../models/Guild.model.js";
 import { sendToAllGuids } from "../../drops.js";
 const CHIRP = "<:chirp:1016831250494935090>";

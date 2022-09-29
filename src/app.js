@@ -1,8 +1,8 @@
-import Framework from 'strike-discord-salt-edits';
+import Framework from 'strike-discord-salt-edits-temp';
 import { sequelize } from './database.js';
 import config from './config.js';
 import Claim from './commands/main/claim.js';
-import { CommandEvent } from 'strike-discord-salt-edits/dist/command.js';
+import { CommandEvent } from 'strike-discord-salt-edits-temp/dist/command.js';
 
 const framework = new Framework({
     token: config.TOKEN,
@@ -10,7 +10,7 @@ const framework = new Framework({
     ownerID: 189317034360832001,
     databaseOpts: {
         databaseName: "bitware",
-        url: config.MONGO,
+        url: "mongodb://10.0.100.2:27017/bitware",
     },
     loggerOpts: {
         logToFile: true
@@ -19,8 +19,8 @@ const framework = new Framework({
     commandsPath: `${process.cwd()}/src/commands/`,
 });
 
-    framework.loadBotCommands(`${process.cwd()}/../node_modules/strike-discord-salt-edits/dist/defaultCommands/`);
-    // framework.loadBotCommands(`${process.cwd()}/node_modules/strike-discord-framework/dist/defaultCommands/`);
+    // framework.loadBotCommands(`${process.cwd()}/../node_modules/strike-discord-salt-edits-temp/dist/defaultCommands/`);
+    framework.loadBotCommands(`${process.cwd()}/node_modules/strike-discord-framework/dist/defaultCommands/`);
 
 setTimeout(async () => {
     await framework.init();

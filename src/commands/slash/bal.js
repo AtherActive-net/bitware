@@ -1,5 +1,5 @@
 import Discord from "discord.js";
-import { SlashCommand } from "strike-discord-salt-edits/dist/command.js";
+import { SlashCommand } from "strike-discord-salt-edits-temp/dist/command.js";
 import User from "../../models/User.model.js";
 import Transfers from "../../transfers.js";
 

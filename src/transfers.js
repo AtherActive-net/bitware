@@ -10,7 +10,13 @@ class Transfers {
      * @returns `null` If the user does not exist.
      */
     async getUserBalance(discordId) {
-        let user = await User.findOne({ discordId: discordId });
+        let user = await User.findOne(
+            {
+                where: {
+                    discordId: discordId
+                }
+            }
+        );
         if (user) {
             return user.bits;
         } else {
@@ -73,7 +79,11 @@ class Transfers {
      * @returns `false` The transaction failed.
      */
     async giveUser(receiver,amount) {
-        let receiveUser = await User.findOne({ discordId: receiver });
+        let receiveUser = await User.findOne({
+            where: {
+                discordId: receiver
+            }
+        });
         receiveUser.bits += amount;
         await receiveUser.save();
         return true;

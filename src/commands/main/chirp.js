@@ -1,12 +1,13 @@
 import Discord from "discord.js";
-import { Command } from "strike-discord-salt-edits/dist/command.js";
+import { Command } from "strike-discord-salt-edits-temp/dist/command.js";
 import {remainingBits, dropHappening, updateRemainingBits, claimedIds, RANDOM_DOUBLE_CHANCE, randomInRange} from "../../drops.js";
 import User from "../../models/User.model.js";
+import transfers from "../../transfers.js";
 
 const CHIRP = "<:chirp:1015918908244508682>";
 
 class Claim extends Command {
-    name = "chirp";
+    name = "claim";
     help= {
         msg: "Claim a Chirp from the current drop!",
         usage: "!claim",
@@ -27,7 +28,7 @@ class Claim extends Command {
         if(randomInRange(0,RANDOM_DOUBLE_CHANCE) == Math.floor(RANDOM_DOUBLE_CHANCE/2)) {
 
             await this.setClaimedDrop(message);
-            await this.updateDatabaseValue(message,2);
+            await this.updateDatabaseValue(message,framework,2);
             const emb = new Discord.MessageEmbed()
                 .setTitle("CHIIIIIRP OVERLOAD!!!");
             emb.setDescription(`
@@ -58,7 +59,8 @@ class Claim extends Command {
     async updateDatabaseValue(message, framework, droppedAmount=1) {
         const author = `${message.author.id}`
         if(await User.doesUserExist(author)) {
-            User.updateBits(author, droppedAmount,framework,message);
+            await transfers.giveUser(author,droppedAmount);
+            // User.updateBits(author, droppedAmount,framework,message);
         } else {
             await User.create({
                 discordId: author,
@@ -66,7 +68,7 @@ class Claim extends Command {
             })
         }
 
-        updateRemainingBits(droppedAmount);
+        updateRemainingBits(droppedAmount,framework,message);
         return
     }
 

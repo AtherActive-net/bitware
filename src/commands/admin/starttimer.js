@@ -1,5 +1,5 @@
 import Discord from "discord.js";
-import { Command } from "strike-discord-salt-edits/dist/command.js";
+import { Command } from "strike-discord-salt-edits-temp/dist/command.js";
 import { timer,active } from "../../drops.js";
 
 class StartTimer extends Command {

@@ -1,4 +1,4 @@
-import { SlashCommand } from 'strike-discord-salt-edits/dist/command.js';
+import { SlashCommand } from 'strike-discord-salt-edits-temp/dist/command.js';
 import transfers from '../../transfers.js';
 import Discord from 'discord.js';
 

@@ -1,5 +1,5 @@
 import Discord from "discord.js";
-import { Command } from "strike-discord-framework/dist/command.js";
+import { Command } from "strike-discord-salt-edits-temp/dist/command.js";
 const CHIRP = "<:chirp:1016831250494935090>";
 
 class ChirpWar extends Command {
