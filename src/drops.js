@@ -26,7 +26,12 @@ const DESCRIPTIONS = [
     `The Chirp mint has no known location. The only known information is that it is high in a tree.`,
     `The Chirp production process is a closely guarded secret.`,
     `Chirp drops have a random duration. They can last anywhere from \`${MIN_DROP_DURATION}\` to \`${MAX_DROP_DURATION}\` minutes.`,
-    `Chirpware is currently at war with Chipware.`
+    `Chirpware is currently at war with Chipware.`,
+    `Chirps are good for you. A chirp a day keeps the doctor away.`,
+    `Some say there is a secret spy watching Chipware's every move. They are known as the Chipwatcher.`,
+    `We accidentally dropped a few Chirps on the ground. Whoopsie!`,
+    `ChirpGames are currently in development. Play them to use your Chirps (and potentially gain more)`,
+    `Some say that the Chirp mint is actually a Chirp tree. Others say it is a Chirp bush.`
 ]
 
 export function randomInRange(min, max) {
